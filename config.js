@@ -1,5 +1,6 @@
 const config = {
   server: {
+    host: 'localhost',
     port: 3000,
   },
   database: {
@@ -13,6 +14,8 @@ const config = {
       autoReconnect: true,
       reconnectTries: Number.MAX_VALUE,
       reconnectInterval: 5000,
+      useCreateIndex: true,
+      useFindAndModify: false,
     },
   },
 };

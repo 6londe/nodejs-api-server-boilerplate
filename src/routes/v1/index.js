@@ -1,16 +1,8 @@
 import express from 'express';
+import userRoute from './user.route';
 
 const router = express.Router();
 
-/**
- * @swagger
- * /v1:
- *   get:
- *     tags:
- *       - Example
- *     summary: Example API
- *     description: Example API description
- */
-router.get('/', (req, res) => { res.status(200).send('OK'); });
+router.use('/users', userRoute);
 
-export default router;
+module.exports = router;
