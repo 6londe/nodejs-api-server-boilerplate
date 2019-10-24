@@ -1,15 +1,16 @@
 {
   "name": "nodejs-basic-frame",
   "version": "1.0.0",
-  "description": "",
+  "description": "Basic frame for nodejs RESTful API server",
   "main": "src/server.js",
   "scripts": {
     "start": "eslint src/** && NODE_ENV=development nodemon --exec babel-node src/index.js",
     "lint": "eslint src/** --fix",
     "test": "eslint tests/** && mocha tests/** --require @babel/register"
   },
-  "author": "",
-  "license": "UNLICENSED",
+  "repository": "https://github.com/6londe/nodejs-basic-frame",
+  "author": "6londe@gmail.com",
+  "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
@@ -29,6 +30,7 @@
     "eslint": "^6.1.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
+    "eslint-utils": ">=1.4.1",
     "mocha": "^6.2.0",
     "nodemon": "^1.19.1",
     "supertest": "^4.0.2"
