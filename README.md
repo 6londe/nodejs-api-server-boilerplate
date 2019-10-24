@@ -11,3 +11,8 @@ $ sudo apt-get install npm nodejs mongodb
 $ npm install
 $ npm start
 ```
+
+### API Documentation
+```
+localhost:3000/swagger
+```
