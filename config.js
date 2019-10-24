@@ -10,6 +10,7 @@ const config = {
     user: 'admin',
     password: '123',
     options: {
+      useUnifiedTopology: true,
       useNewUrlParser: true,
       autoReconnect: true,
       reconnectTries: Number.MAX_VALUE,
