@@ -5,7 +5,6 @@ export const handleError = (err, req, res, next) => {
     const {
       status = 500, message, stack, errors,
     } = err;
-
     if (stack || errors) console.error(stack || errors);
     res.status(status).send({ message, errors, version });
   } else next();
