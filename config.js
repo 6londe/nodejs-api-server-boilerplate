@@ -1,14 +1,14 @@
 const config = {
   server: {
-    host: process.env.IP || 'localhost',
-    port: process.env.PORT || 3000,
+    host: process.env.SERVER_IP || 'localhost',
+    port: process.env.SERVER_PORT || 3000,
   },
   database: {
-    host: 'localhost',
-    port: 27017,
     name: 'mongodb',
-    user: 'admin',
-    password: '123',
+    host: process.env.MONGODB_IP || 'localhost',
+    port: process.env.MONGODB_PORT || 27017,
+    user: process.env.MONGODB_USER || 'admin',
+    password: process.env.MONGODB_PASSWORD || '123',
     options: {
       useUnifiedTopology: true,
       useNewUrlParser: true,
