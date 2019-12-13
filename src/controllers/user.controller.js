@@ -19,7 +19,7 @@ exports.get = async (req) => {
   const { id } = req.params;
   const user = await User.getUser(id);
   if (user) return new APIResponse(200, User.transform(user));
-  throw new APIError({ status: httpStatus.NOT_FOUND, message: 'User not found' });
+  throw new APIError({ status: httpStatus.NOT_FOUND, message: 'user not found' });
 };
 
 exports.update = async (req) => {
@@ -27,12 +27,12 @@ exports.update = async (req) => {
   const { id } = params;
   const user = await User.updateUser(id, body);
   if (user) return new APIResponse(200, User.transform(user));
-  throw new APIError({ status: httpStatus.NOT_FOUND, message: 'User not found' });
+  throw new APIError({ status: httpStatus.NOT_FOUND, message: 'user not found' });
 };
 
 exports.delete = async (req) => {
   const { id } = req.params;
   const user = await User.deleteUser(id);
   if (user) return new APIResponse(200, User.transform(user));
-  throw new APIError({ status: httpStatus.NOT_FOUND, message: 'User not found' });
+  throw new APIError({ status: httpStatus.NOT_FOUND, message: 'user not found' });
 };

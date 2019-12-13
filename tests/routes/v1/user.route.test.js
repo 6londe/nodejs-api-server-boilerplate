@@ -35,6 +35,17 @@ describe('Test user.route.js', () => {
           done();
         });
     });
+    it('it should return status code 400 with validation error', (done) => {
+      chai
+        .request(app)
+        .post('/v1/users')
+        .send({})
+        .end((err, res) => {
+          expect(res).to.have.status(400);
+          expect(res.body.message).to.eql('validation error');
+          done();
+        });
+    });
   });
 
   describe('GET /v1/users', () => {
@@ -46,6 +57,17 @@ describe('Test user.route.js', () => {
         .end((err, res) => {
           expect(res).to.have.status(200);
           expect(res.body.data).to.be.an('array');
+          done();
+        });
+    });
+    it('it should return status code 400 with validation error', (done) => {
+      chai
+        .request(app)
+        .get('/v1/users')
+        .query({ offset: 0, limit: 0 })
+        .end((err, res) => {
+          expect(res).to.have.status(400);
+          expect(res.body.message).to.eql('validation error');
           done();
         });
     });
@@ -64,6 +86,16 @@ describe('Test user.route.js', () => {
           done();
         });
     });
+    it('it should return status code 404 with user not found error', (done) => {
+      chai
+        .request(app)
+        .get(`/v1/users/${mongoose.Types.ObjectId()}`)
+        .end((err, res) => {
+          expect(res).to.have.status(404);
+          expect(res.body.message).to.eql('user not found');
+          done();
+        });
+    });
   });
 
   describe('PUT /v1/users/{id}', () => {
@@ -79,6 +111,17 @@ describe('Test user.route.js', () => {
           done();
         });
     });
+    it('it should return status code 404 with user not found error', (done) => {
+      chai
+        .request(app)
+        .put(`/v1/users/${mongoose.Types.ObjectId()}`)
+        .send({})
+        .end((err, res) => {
+          expect(res).to.have.status(404);
+          expect(res.body.message).to.eql('user not found');
+          done();
+        });
+    });
   });
 
   describe('DELETE /v1/users/{id}', () => {
@@ -88,6 +131,16 @@ describe('Test user.route.js', () => {
         .delete(`/v1/users/${dummyId}`)
         .end((err, res) => {
           expect(res).to.have.status(200);
+          done();
+        });
+    });
+    it('it should return status code 404 with user not found error', (done) => {
+      chai
+        .request(app)
+        .delete(`/v1/users/${dummyId}`)
+        .end((err, res) => {
+          expect(res).to.have.status(404);
+          expect(res.body.message).to.eql('user not found');
           done();
         });
     });
