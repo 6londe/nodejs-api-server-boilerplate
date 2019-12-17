@@ -1,5 +1,18 @@
 # nodejs-api-server-minimal-boilerplate
+
 Minimal Boilerplate for Node.js API Server with Mongodb
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Included
+- Node Server with `express.js`
+- API Example with Router-Controller-Model Structure
+- Mongodb CRUD with `mongoose`
+- Parameter Validation
+- Swagger API Documentation
+- ESLint
+- Test/Coverage
+- Dockerfile
 
 ## Usage
 
@@ -26,9 +39,7 @@ $ npm run test
 localhost:3000/swagger
 ```
 
-## Overview
-
-### Files
+## File Tree
 ```
 ├── src/
 │   ├── index.js            1. receive request
@@ -42,7 +53,7 @@ localhost:3000/swagger
 └── config.js               - server configurations
 ```
 
-### Packages
+## Packages
 - Framework: [express](https://www.npmjs.com/package/express)
 - Database: [mongoose](https://www.npmjs.com/package/mongoose)
 - Documentation: [swagger-jsdoc](https://www.npmjs.com/package/swagger-jsdoc), [swagger-ui-express](https://www.npmjs.com/package/swagger-ui-express)
