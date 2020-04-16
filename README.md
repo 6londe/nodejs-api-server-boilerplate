@@ -44,10 +44,9 @@ localhost:3000/swagger
 │   ├── index.js            1. receive request
 │   ├── routes/             2. route request by url
 │   ├── middlewares/        3. authenticate or check something
-│   └── validations/        4. validate parameters
-│   ├── controllers/        5. do some business logic
-│   ├── models/             6. query database
-│   ├── utils/              - some utilities
+│   ├── controllers/        4. do some business logic
+│   ├── models/             5. query database
+│   ├── utils/              - utilities
 ├── tests/                  - api test codes
 └── config.js               - server configurations
 ```

@@ -8,7 +8,7 @@ services:
     restart: always
 
   server:
-    image: 6londe/nodejs-api-server-minimal-boilerplate:latest
+    #image: 6londe/nodejs-api-server-minimal-boilerplate:latest
     build:
       context: .
     ports:
