@@ -8,7 +8,6 @@ Minimal Boilerplate for Node.js API Server with Mongodb
 - Node Server with `express.js`
 - API Example with Router-Controller-Model Structure
 - Mongodb CRUD with `mongoose`
-- Parameter Validation
 - Swagger API Documentation
 - ESLint
 - Test/Coverage
@@ -57,7 +56,6 @@ localhost:3000/swagger
 - Framework: [express](https://www.npmjs.com/package/express)
 - Database: [mongoose](https://www.npmjs.com/package/mongoose)
 - Documentation: [swagger-jsdoc](https://www.npmjs.com/package/swagger-jsdoc), [swagger-ui-express](https://www.npmjs.com/package/swagger-ui-express)
-- Validation: [express-validation](https://www.npmjs.com/package/express-validation), [joi](https://www.npmjs.com/package/joi)
 - Lint: [eslint](https://www.npmjs.com/package/swagger-ui-express)
 - Test: [mocha](https://www.npmjs.com/package/mocha), [chai](https://www.npmjs.com/package/chai), [nyc](https://www.npmjs.com/package/nyc)
 - Logger: [morgan](https://www.npmjs.com/package/morgan)

@@ -1,6 +1,4 @@
 import express from 'express';
-import validate from 'express-validation';
-import validator from '../../validations/user.validation';
 import authenticate from '../../middlewares/authentication';
 import controller from '../../controllers/user.controller';
 import { handle } from '../../utils/api-handler';
@@ -73,7 +71,7 @@ const router = express.Router();
  *               type: string
  *               example: 1.0.0
  */
-router.route('/').post(authenticate(), validate(validator.create), handle(controller.create));
+router.route('/').post(authenticate(), handle(controller.create));
 
 /**
  * @swagger
@@ -110,7 +108,7 @@ router.route('/').post(authenticate(), validate(validator.create), handle(contro
  *               type: string
  *               example: 1.0.0
  */
-router.route('/').get(authenticate(), validate(validator.list), handle(controller.list));
+router.route('/').get(authenticate(), handle(controller.list));
 
 /**
  * @swagger
@@ -137,7 +135,7 @@ router.route('/').get(authenticate(), validate(validator.list), handle(controlle
  *               type: string
  *               example: 1.0.0
  */
-router.route('/:id').get(authenticate(), validate(validator.get), handle(controller.get));
+router.route('/:id').get(authenticate(), handle(controller.get));
 
 /**
  * @swagger
@@ -181,7 +179,7 @@ router.route('/:id').get(authenticate(), validate(validator.get), handle(control
  *               type: string
  *               example: 1.0.0
  */
-router.route('/:id').put(authenticate(), validate(validator.update), handle(controller.update));
+router.route('/:id').put(authenticate(), handle(controller.update));
 
 /**
  * @swagger
@@ -208,6 +206,6 @@ router.route('/:id').put(authenticate(), validate(validator.update), handle(cont
  *               type: string
  *               example: 1.0.0
  */
-router.route('/:id').delete(authenticate(), validate(validator.delete), handle(controller.delete));
+router.route('/:id').delete(authenticate(), handle(controller.delete));
 
 export default router;
