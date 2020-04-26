@@ -43,7 +43,9 @@ userSchema.statics = {
     const { offset, limit } = query;
     delete query.offset;
     delete query.limit;
-    const users = this.find(query).skip(offset || 0).limit(limit || 10);
+    const users = this.find(query)
+      .skip(parseInt(offset || 0, 10))
+      .limit(parseInt(limit || 10, 10));
     return users;
   },
 

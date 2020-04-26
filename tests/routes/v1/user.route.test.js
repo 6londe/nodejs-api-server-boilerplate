@@ -35,17 +35,6 @@ describe('Test user.route.js', () => {
           done();
         });
     });
-    it('it should return status code 400 with validation error', (done) => {
-      chai
-        .request(app)
-        .post('/v1/users')
-        .send({})
-        .end((err, res) => {
-          expect(res).to.have.status(400);
-          expect(res.body.message).to.eql('validation error');
-          done();
-        });
-    });
   });
 
   describe('GET /v1/users', () => {
@@ -57,17 +46,6 @@ describe('Test user.route.js', () => {
         .end((err, res) => {
           expect(res).to.have.status(200);
           expect(res.body.data).to.be.an('array');
-          done();
-        });
-    });
-    it('it should return status code 400 with validation error', (done) => {
-      chai
-        .request(app)
-        .get('/v1/users')
-        .query({ offset: 0, limit: 0 })
-        .end((err, res) => {
-          expect(res).to.have.status(400);
-          expect(res.body.message).to.eql('validation error');
           done();
         });
     });

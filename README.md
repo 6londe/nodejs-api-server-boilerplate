@@ -10,7 +10,7 @@ Minimal Boilerplate for Node.js API Server with Mongodb
 - Mongodb CRUD with `mongoose`
 - Swagger API Documentation
 - ESLint
-- Test/Coverage
+- Test
 - Dockerfile
 
 ## Usage
@@ -56,6 +56,6 @@ localhost:3000/swagger
 - Database: [mongoose](https://www.npmjs.com/package/mongoose)
 - Documentation: [swagger-jsdoc](https://www.npmjs.com/package/swagger-jsdoc), [swagger-ui-express](https://www.npmjs.com/package/swagger-ui-express)
 - Lint: [eslint](https://www.npmjs.com/package/swagger-ui-express)
-- Test: [mocha](https://www.npmjs.com/package/mocha), [chai](https://www.npmjs.com/package/chai), [nyc](https://www.npmjs.com/package/nyc)
+- Test: [mocha](https://www.npmjs.com/package/mocha), [chai](https://www.npmjs.com/package/chai)
 - Logger: [morgan](https://www.npmjs.com/package/morgan)
 - Etc.: [nodemon](https://www.npmjs.com/package/nodemon)
