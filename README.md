@@ -1,4 +1,4 @@
-# nodejs-api-server-minimal-boilerplate
+# nodejs-api-server-boilerplate
 
 Minimal Boilerplate for Node.js API Server with Mongodb
 
