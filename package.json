@@ -1,5 +1,5 @@
 {
-  "name": "nodejs-api-server-minimal-boilerplate",
+  "name": "nodejs-api-server-boilerplate",
   "version": "1.0.0",
   "description": "Minimal boilerplate for node.js API server",
   "main": "src/index.js",
@@ -8,7 +8,7 @@
     "lint": "eslint src/** --fix",
     "test": "eslint tests/** && NODE_ENV=test mocha tests/**/*.test.js --require @babel/register --exit"
   },
-  "repository": "https://github.com/6londe/nodejs-api-server-minimal-boilerplate",
+  "repository": "https://github.com/6londe/nodejs-api-server-boilerplate",
   "author": "6londe@gmail.com",
   "license": "MIT",
   "dependencies": {
