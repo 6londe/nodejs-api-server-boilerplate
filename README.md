@@ -58,4 +58,3 @@ localhost:3000/swagger
 - Lint: [eslint](https://www.npmjs.com/package/swagger-ui-express)
 - Test: [mocha](https://www.npmjs.com/package/mocha), [chai](https://www.npmjs.com/package/chai)
 - Logger: [morgan](https://www.npmjs.com/package/morgan)
-- Etc.: [nodemon](https://www.npmjs.com/package/nodemon)

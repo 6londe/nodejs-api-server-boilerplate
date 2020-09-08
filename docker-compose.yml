@@ -1,14 +1,13 @@
 version: '3'
 
 services:
-  db:
-    image: mongo:4.2
+  mongo:
+    image: mongo:4.2.8
     volumes:
       - db_data:/data/db
     restart: always
 
   server:
-    #image: 6londe/nodejs-api-server-minimal-boilerplate:latest
     build:
       context: .
     ports:
@@ -17,10 +16,10 @@ services:
     environment:
       SERVER_IP: "0.0.0.0"
       SERVER_PORT: 3000
-      MONGODB_IP: db
+      MONGODB_IP: mongo
       MONGODB_PORT: 27017
-      # MONGODB_USER: 'admin'
-      # MONGODB_PASSWORD: 123
+      # MONGODB_USER: ${MONGODB_USER}
+      # MONGODB_PASSWORD: ${MONGODB_PASSWORD}
 
 volumes:
   db_data:
