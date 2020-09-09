@@ -12,7 +12,7 @@ const config = {
     host: process.env.MONGODB_IP || 'localhost',
     port: process.env.MONGODB_PORT || 27017,
     user: process.env.MONGODB_USER || 'admin',
-    password: process.env.MONGODB_PASSWORD || '123',
+    password: process.env.MONGODB_PASSWORD || 'admin',
     options: {
       useUnifiedTopology: true,
       useNewUrlParser: true,
@@ -24,6 +24,8 @@ const config = {
 
 if (process.env.NODE_ENV === 'test') config.database.name += '-test';
 
-config.database.uri = `mongodb://${config.database.host}:${config.database.port}/${config.database.name}`;
+config.database.uri = process.env.NODE_ENV === 'production'
+  ? `mongodb://${config.database.user}:${config.database.password}@${config.database.host}:${config.database.port}/${config.database.name}?authSource=admin`	
+  : `mongodb://${config.database.host}:${config.database.port}/${config.database.name}`;
 
 export default config;
