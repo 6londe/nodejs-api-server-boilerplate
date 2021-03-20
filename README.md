@@ -15,6 +15,14 @@ Minimal Boilerplate for Node.js API Server with Mongodb
 
 ## Usage
 
+### Config
+Create `.env` on project root.
+```
+SERVER_IP=0.0.0.0
+SERVER_PORT=3000
+MONGODB_USER=admin
+MONGODB_PASSWORD=admin
+```
 ### Run
 ```
 $ sudo apt-get install npm nodejs mongodb
