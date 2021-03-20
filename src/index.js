@@ -5,7 +5,15 @@ import config from '../config';
 import routes from './routes';
 
 const { server, database } = config;
-mongoose.connect(database.uri, database.options);
+if (process.env.NODE_ENV === 'production') {
+  mongoose.connect(`${database.uri}?authSource=admin`, {
+    ...database.options,
+    user: config.database.user,
+    pass: config.database.password,
+  });
+} else {
+  mongoose.connect(database.uri, database.options);
+}
 
 const app = express();
 app.use(express.json());
