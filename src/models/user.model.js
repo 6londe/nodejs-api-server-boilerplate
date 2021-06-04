@@ -51,7 +51,7 @@ userSchema.statics = {
 
   transform(user) {
     const transformed = {};
-    const fields = ['id', 'name', 'email', 'createdAt'];
+    const fields = ['_id', 'name', 'email', 'createdAt'];
     fields.forEach((field) => { transformed[field] = user[field]; });
     return transformed;
   },

@@ -2,24 +2,23 @@ import '@babel/polyfill';
 import mongoose from 'mongoose';
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import { describe, it } from 'mocha';
+import { before, describe, it } from 'mocha';
 import app from '../../../src';
 import User from '../../../src/models/user.model';
 
 chai.use(chaiHttp);
 const { expect } = chai;
-const dummyId = mongoose.Types.ObjectId();
+let dummyId;
 const dummyEmail = 'dummy@dummy.com';
 const dummyName = 'dummyUser';
 
 describe('Test user.route.js', () => {
-  describe('Initialize..', () => {
-    it('it should empty user test database without error', (done) => {
-      User.deleteMany({}, () => { done(); });
-    });
-    it('it should create dummy user without error', (done) => {
-      User.create({ _id: dummyId, email: dummyEmail, name: dummyName }, () => { done(); });
-    });
+  before(async () => {
+    await User.deleteMany({}, () => {});
+    await User.create(
+      { email: dummyEmail, name: dummyName },
+      (err, { _id }) => { dummyId = _id; },
+    );
   });
 
   describe('POST /v1/users', () => {
@@ -27,10 +26,10 @@ describe('Test user.route.js', () => {
       chai
         .request(app)
         .post('/v1/users')
-        .send({ email: 'test@test.com', name: 'testUser' })
+        .send({ email: 'test@email.com', name: 'testUser' })
         .end((err, res) => {
           expect(res).to.have.status(201);
-          expect(res.body.data.email).to.equal('test@test.com');
+          expect(res.body.data.email).to.equal('test@email.com');
           expect(res.body.data.name).to.equal('testUser');
           done();
         });
