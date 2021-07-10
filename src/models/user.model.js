@@ -18,41 +18,35 @@ const userSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 userSchema.statics = {
-
   async createUser(body) {
-    const user = await this.create(body);
-    return user;
+    const doc = await this.create(body);
+    return doc;
   },
-
   async getUser(id) {
-    const user = await this.findById(id);
-    return user;
+    const doc = await this.findById(id);
+    return doc;
   },
-
   async updateUser(id, body) {
-    const user = await this.findByIdAndUpdate(id, body, { new: true });
-    return user;
+    const doc = await this.findByIdAndUpdate(id, body, { new: true });
+    return doc;
   },
-
   async deleteUser(id) {
-    const user = await this.findByIdAndDelete(id);
-    return user;
+    const doc = await this.findByIdAndDelete(id);
+    return doc;
   },
-
   async listUsers(query) {
     const { offset, limit } = query;
     delete query.offset;
     delete query.limit;
-    const users = this.find(query)
+    const docs = this.find(query)
       .skip(parseInt(offset || 0, 10))
       .limit(parseInt(limit || 10, 10));
-    return users;
+    return docs;
   },
-
-  transform(user) {
+  transform(doc) {
     const transformed = {};
     const fields = ['_id', 'name', 'email', 'createdAt'];
-    fields.forEach((field) => { transformed[field] = user[field]; });
+    fields.forEach((field) => { transformed[field] = doc[field]; });
     return transformed;
   },
 };
