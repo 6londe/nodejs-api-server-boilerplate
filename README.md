@@ -20,7 +20,7 @@ Create `.env` on project root.
 ```
 SERVER_IP=0.0.0.0
 SERVER_PORT=3000
-MONGODB_USER=admin
+MONGODB_USERNAME=admin
 MONGODB_PASSWORD=admin
 ```
 ### Run

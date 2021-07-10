@@ -11,7 +11,7 @@ const config = {
     name: 'database',
     host: process.env.MONGODB_IP || 'localhost',
     port: process.env.MONGODB_PORT || 27017,
-    user: process.env.MONGODB_USER || 'admin',
+    username: process.env.MONGODB_USERNAME || 'admin',
     password: process.env.MONGODB_PASSWORD || 'admin',
     options: {
       useUnifiedTopology: true,
@@ -22,7 +22,14 @@ const config = {
   },
 };
 
-if (process.env.NODE_ENV === 'test') {
+if (process.env.NODE_ENV === 'production') {
+  config.database.name += '?authSource=admin';
+  config.database.options = {
+    ...config.database.options,
+    user: config.database.username,
+    pass: config.database.password,
+  };
+} else if (process.env.NODE_ENV === 'test') {
   config.database.name += '-test';
   config.server.port = 3456;
 }
