@@ -14,12 +14,13 @@ services:
       - ${SERVER_PORT}:${SERVER_PORT}
     restart: always
     environment:
-      SERVER_IP: "0.0.0.0"
+      SERVER_IP: ${SERVER_IP}
       SERVER_PORT: ${SERVER_PORT}
       MONGODB_IP: mongo
       MONGODB_PORT: 27017
       MONGODB_USERNAME: ${MONGODB_USERNAME}
       MONGODB_PASSWORD: ${MONGODB_PASSWORD}
+      NODE_ENV: production
 
 volumes:
   db_data:
