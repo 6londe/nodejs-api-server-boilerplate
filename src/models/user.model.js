@@ -18,23 +18,23 @@ const userSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 userSchema.statics = {
-  async createUser(body) {
+  async add(body) {
     const doc = await this.create(body);
     return doc;
   },
-  async getUser(id) {
+  async getById(id) {
     const doc = await this.findById(id);
     return doc;
   },
-  async updateUser(id, body) {
+  async updateById(id, body) {
     const doc = await this.findByIdAndUpdate(id, body, { new: true });
     return doc;
   },
-  async deleteUser(id) {
+  async deleteById(id) {
     const doc = await this.findByIdAndDelete(id);
     return doc;
   },
-  async listUsers(query) {
+  async list(query) {
     const { offset, limit } = query;
     delete query.offset;
     delete query.limit;
