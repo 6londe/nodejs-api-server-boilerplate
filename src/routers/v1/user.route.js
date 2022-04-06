@@ -207,6 +207,6 @@ router.route('/:id').put(authenticate(), validate(), handle(controller.update));
  *               type: string
  *               example: 1.0.0
  */
-router.route('/:id').delete(authenticate(), validate(), handle(controller.delete));
+router.route('/:id').delete(authenticate(), validate(), handle(controller.remove));
 
 export default router;
