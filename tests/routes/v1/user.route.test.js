@@ -9,12 +9,12 @@ import User from '../../../src/models/user.model';
 chai.use(chaiHttp);
 const { expect } = chai;
 let dummyId;
-const dummyEmail = 'dummy@dummy.com';
-const dummyName = 'dummyUser';
+const dummyEmail = `${new Date().getTime()}@email.com`;
+const dummyName = `${new Date().getTime()}`;
 
 describe('Test user.route.js', () => {
   before(async () => {
-    await User.deleteMany({}, () => {});
+    await User.collection.drop();
     await User.create(
       { email: dummyEmail, name: dummyName },
       (err, { _id }) => { dummyId = _id; },
