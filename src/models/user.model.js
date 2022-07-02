@@ -1,21 +1,24 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-const userSchema = new mongoose.Schema({
-  email: {
-    type: String,
-    match: /^\S+@\S+\.\S+$/,
-    required: true,
-    unique: true,
-    trim: true,
-    lowercase: true,
+const userSchema = new mongoose.Schema(
+  {
+    email: {
+      type: String,
+      match: /^\S+@\S+\.\S+$/,
+      required: true,
+      unique: true,
+      trim: true,
+      lowercase: true,
+    },
+    name: {
+      type: String,
+      maxlength: 128,
+      index: true,
+      trim: true,
+    },
   },
-  name: {
-    type: String,
-    maxlength: 128,
-    index: true,
-    trim: true,
-  },
-}, { timestamps: true });
+  { timestamps: true }
+);
 
 userSchema.statics = {
   async add(body) {
@@ -45,10 +48,12 @@ userSchema.statics = {
   },
   transform(doc) {
     const transformed = {};
-    const fields = ['_id', 'name', 'email', 'createdAt'];
-    fields.forEach((field) => { transformed[field] = doc[field]; });
+    const fields = ["_id", "name", "email", "createdAt"];
+    fields.forEach((field) => {
+      transformed[field] = doc[field];
+    });
     return transformed;
   },
 };
 
-export default mongoose.model('User', userSchema);
+export default mongoose.model("User", userSchema);

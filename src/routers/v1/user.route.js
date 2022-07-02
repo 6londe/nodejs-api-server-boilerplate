@@ -1,8 +1,8 @@
-import express from 'express';
-import authenticate from '../../middlewares/authentication';
-import validate from '../../middlewares/validation';
-import controller from '../../controllers/user.controller';
-import { handle } from '../../utils/api-handler';
+import express from "express";
+import authenticate from "../../middlewares/authentication";
+import validate from "../../middlewares/validation";
+import controller from "../../controllers/user.controller";
+import { handle } from "../../utils/api-handler";
 
 const router = express.Router();
 
@@ -72,7 +72,7 @@ const router = express.Router();
  *               type: string
  *               example: 1.0.0
  */
-router.route('/').post(authenticate(), validate(), handle(controller.create));
+router.route("/").post(authenticate(), validate(), handle(controller.create));
 
 /**
  * @swagger
@@ -109,7 +109,7 @@ router.route('/').post(authenticate(), validate(), handle(controller.create));
  *               type: string
  *               example: 1.0.0
  */
-router.route('/').get(authenticate(), validate(), handle(controller.list));
+router.route("/").get(authenticate(), validate(), handle(controller.list));
 
 /**
  * @swagger
@@ -136,7 +136,7 @@ router.route('/').get(authenticate(), validate(), handle(controller.list));
  *               type: string
  *               example: 1.0.0
  */
-router.route('/:id').get(authenticate(), validate(), handle(controller.get));
+router.route("/:id").get(authenticate(), validate(), handle(controller.get));
 
 /**
  * @swagger
@@ -180,7 +180,7 @@ router.route('/:id').get(authenticate(), validate(), handle(controller.get));
  *               type: string
  *               example: 1.0.0
  */
-router.route('/:id').put(authenticate(), validate(), handle(controller.update));
+router.route("/:id").put(authenticate(), validate(), handle(controller.update));
 
 /**
  * @swagger
@@ -207,6 +207,8 @@ router.route('/:id').put(authenticate(), validate(), handle(controller.update));
  *               type: string
  *               example: 1.0.0
  */
-router.route('/:id').delete(authenticate(), validate(), handle(controller.remove));
+router
+  .route("/:id")
+  .delete(authenticate(), validate(), handle(controller.remove));
 
 export default router;

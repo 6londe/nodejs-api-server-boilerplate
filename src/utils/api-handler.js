@@ -1,10 +1,8 @@
-import { version } from '../../package.json';
+import { version } from "../../package.json";
 
 export const handleError = (err, req, res, next) => {
   if (err) {
-    const {
-      status = 500, message, stack, errors,
-    } = err;
+    const { status = 500, message, stack, errors } = err;
     if (stack || errors) console.error(stack || errors);
     res.status(status).send({ message, errors, version });
   } else next();

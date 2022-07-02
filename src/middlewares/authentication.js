@@ -1,3 +1,5 @@
-const authenticate = () => (req, res, next) => { next(); };
+const authenticate = () => (req, res, next) => {
+  next();
+};
 
 export default authenticate;
