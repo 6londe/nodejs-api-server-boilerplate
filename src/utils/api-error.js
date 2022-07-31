@@ -9,7 +9,7 @@ class APIError extends Error {
     isPublic = false,
   }) {
     super(message);
-    this.message = message;
+    this.message = message.message || message;
     this.errors = errors;
     this.stack = stack;
     this.status = status;
