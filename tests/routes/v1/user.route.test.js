@@ -15,9 +15,8 @@ const dummyName = `${new Date().getTime()}`;
 describe("Test user.route.js", () => {
   before(async () => {
     await User.collection.drop();
-    await User.create(
-      { email: dummyEmail, name: dummyName },
-      (err, { _id }) => {
+    await User.create({ email: dummyEmail, name: dummyName }).then(
+      ({ _id }) => {
         dummyId = _id;
       }
     );
@@ -68,7 +67,7 @@ describe("Test user.route.js", () => {
     it("it should return status code 404 with user not found error", (done) => {
       chai
         .request(app)
-        .get(`/v1/users/${mongoose.Types.ObjectId()}`)
+        .get(`/v1/users/${new mongoose.Types.ObjectId()}`)
         .end((err, res) => {
           expect(res).to.have.status(404);
           expect(res.body.message).to.eql("user not found");
@@ -93,7 +92,7 @@ describe("Test user.route.js", () => {
     it("it should return status code 404 with user not found error", (done) => {
       chai
         .request(app)
-        .put(`/v1/users/${mongoose.Types.ObjectId()}`)
+        .put(`/v1/users/${new mongoose.Types.ObjectId()}`)
         .send({})
         .end((err, res) => {
           expect(res).to.have.status(404);
