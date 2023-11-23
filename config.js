@@ -1,6 +1,8 @@
 import dotenv from "dotenv";
+import pkg from "./package.json";
 
 dotenv.config();
+const { name } = pkg;
 
 const config = {
   server: {
@@ -8,7 +10,7 @@ const config = {
     port: process.env.SERVER_PORT || 3333,
   },
   database: {
-    name: "database",
+    name: name || "database",
     host: process.env.MONGODB_IP || "127.0.0.1",
     port: process.env.MONGODB_PORT || 27017,
     username: process.env.MONGODB_USERNAME || "admin",
