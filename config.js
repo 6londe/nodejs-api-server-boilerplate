@@ -9,14 +9,11 @@ const config = {
   },
   database: {
     name: "database",
-    host: process.env.MONGODB_IP || "localhost",
+    host: process.env.MONGODB_IP || "127.0.0.1",
     port: process.env.MONGODB_PORT || 27017,
     username: process.env.MONGODB_USERNAME || "admin",
     password: process.env.MONGODB_PASSWORD || "admin",
-    options: {
-      useUnifiedTopology: true,
-      useNewUrlParser: true,
-    },
+    options: {},
   },
 };
 
